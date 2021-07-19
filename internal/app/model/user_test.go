@@ -7,9 +7,9 @@ import (
 )
 
 func TestUser_Validate(t *testing.T) {
-	testCases := []struct{
-		name string
-		u func() *model.User
+	testCases := []struct {
+		name    string
+		u       func() *model.User
 		isValid bool
 	}{
 		{
@@ -68,8 +68,8 @@ func TestUser_Validate(t *testing.T) {
 	}
 
 	for _, tc := range testCases {
-		t.Run(tc.name, func(t *testing.T){
-			if tc.isValid{
+		t.Run(tc.name, func(t *testing.T) {
+			if tc.isValid {
 				assert.NoError(t, tc.u().Validate())
 			} else {
 				assert.Error(t, tc.u().Validate())
